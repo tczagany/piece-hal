@@ -1,0 +1,6 @@
+build/tmp
+build/bin
+.pio
+.cache
+platformio.ini
+compile_commands.json
