@@ -1,7 +1,7 @@
 #include <syslog.h>
 #include <unistd.h>
 
-#include "piece.h"
+#include "piece-fw.h"
 
 static char platformUniqueId[16];
 static int argumentCount = 0;
@@ -15,6 +15,8 @@ void generateUniqueId() {
     platformUniqueId[6] = 0;
 }
 
+}
+
 int main(int argc, const char** args) {
     openlog("PIECE", LOG_NDELAY, LOG_USER);
     arguments = args;
@@ -23,6 +25,4 @@ int main(int argc, const char** args) {
     for(;;)
         piece::loop();
     return 0;
-}
-
 }
