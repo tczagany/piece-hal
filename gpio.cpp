@@ -6,32 +6,55 @@ using namespace piece::hal;
 namespace piece {
 namespace hal_template {
 
-int getPinsCount() {
+hal::DeviceInfo GPIO::deviceInfo = {
+    hal::DeviceType::gpio,
+    hal::DeviceClass::unknown,
+    "gpio",
+    "undefined",
+    "GPIO port template"
+};
+
+DeviceListEntry GPIO::deviceEntry = {
+    nullptr, nullptr, nullptr
+};
+
+int GPIO::initiate(variant_t settings) {
     return 0;
 }
 
-void setPinMode(int, IGPIO::mode) {
+const hal::DeviceInfo& GPIO::info() {
+    return deviceInfo;
 }
 
-IGPIO::mode getPinMode(int) {
+void GPIO::destroy() {
+}
+
+int GPIO::getPinsCount() {
+    return 0;
+}
+
+void GPIO::setPinMode(int, mode) {
+}
+
+IGPIO::mode GPIO::getPinMode(int) {
     return IGPIO::mode::unknown;
 }
 
-IGPIO::direction getPinDirection(int) {
+IGPIO::direction GPIO::getPinDirection(int) {
     return IGPIO::direction::unknown;
 }
 
-void setPinDirection(int, IGPIO::direction) {
+void GPIO::setPinDirection(int, direction) {
 }
 
-float getPinValue(int) {
+float GPIO::getPinValue(int) {
     return 0;
 }
 
-void setPinValue(int, float) {
+void GPIO::setPinValue(int, float) {
 }
 
-int getTouchValue(int, int) {
+int GPIO::getTouchValue(int, int) {
     return 0;
 }
 

@@ -1,12 +1,16 @@
 #ifndef PIECE_GPIO_IMPLEMENTATION_H
 #define PIECE_GPIO_IMPLEMENTATION_H
 
+#include "piece-fw.h"
 #include "hal/gpio.h"
 
 namespace piece {
 namespace hal_template {
 
 struct GPIO : public hal::IGPIO {
+    int initiate(variant_t settings) override;
+    const hal::DeviceInfo& info() override;
+    void destroy() override;
     int getPinsCount() override;
     void setPinMode(int index, mode m) override;
     mode getPinMode(int index) override;
@@ -15,6 +19,9 @@ struct GPIO : public hal::IGPIO {
     float getPinValue(int index) override;
     void setPinValue(int index, float value) override;
     int getTouchValue(int index, int common) override;
+
+    static hal::DeviceInfo deviceInfo;
+    static DeviceListEntry deviceEntry;
 };
 
 }

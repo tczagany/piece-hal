@@ -3,6 +3,29 @@
 namespace piece {
 namespace hal_template {
 
+hal::DeviceInfo System::deviceInfo = {
+    hal::DeviceType::unknown,
+    hal::DeviceClass::unknown,
+    "system",
+    "unknown",
+    "General system service template"
+};
+
+DeviceListEntry System::deviceEntry = {
+    nullptr, nullptr, nullptr
+};
+
+int System::initiate(variant_t settings) {
+    return 0;
+}
+
+const hal::DeviceInfo& System::info() {
+    return deviceInfo;
+}
+
+void System::destroy() {
+}
+
 void System::exit() {
 }
 
